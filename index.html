@@ -10,63 +10,17 @@
 	</style>
 </head>
 <body>
-	<div id="app">		
-		<input type="text" v-model="newTodo">
-		<button @click="addTodo">Add todo</button>		
-		
-		<ul>		
-			<li v-for="(todo, index) in todos" :class={'complete':todo.complete}>
-			<input class="toggle" type="checkbox" v-on:click="toggleTodo(todo)" :class={'complete':todo.complete}>
-			{{todo.title}}
-			</li>
-		</ul>
-		
+	<div id="app">	
+		<app></app>	
+		<!--
 		<footer class="footer" v-if="todos.length > 0">
 	    	<span class="todo-count"><strong>{{todos.length}}</strong> {{todos.length == 1 ? 'item' : 'items'}} left</span>
-	  	</footer>
-
+	  	</footer> -->
 	</div>
-	
-	
-
 
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	
-	<script>	
-
-	new Vue({
-		el: '#app',
-		
-		data : {
-			newTodo: "",
-			todos: [{
-				title: 'learn vue',
-				complete: false
-			}, {
-				title: 'build vue app',
-				complete: false
-			}]
-		},
-
-		methods: {
-			addTodo(){
-				this.todos.push({
-					title: this.newTodo,
-					complete: false
-				});
-				this.newTodo = '';
-			},
-
-			toggleTodo(todo){
-				todo.complete = !todo.complete;
-			}
-		},
-
-		mounted(){
-			console.log("Mounted !");
-		}
-	})
-
-	</script>
+	<script src="todo-component.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
